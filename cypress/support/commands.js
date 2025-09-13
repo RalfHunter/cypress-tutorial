@@ -34,3 +34,8 @@ Cypress.Commands.add('login', (email, senha) =>{
         // cy.intercept('POST', '/**').as('login')
         cy.getByData('botao-enviar').click()
 });
+Cypress.Commands.add('transacao',(tipo, valor) =>{
+    cy.getByData('select-opcoes').select(`${tipo}`)
+    cy.getByData('form-input').type(`${valor}`)
+    cy.getByData('realiza-transacao').click();
+})
